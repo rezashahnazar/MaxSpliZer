@@ -1,5 +1,6 @@
 # Gene LookUp
 
-A web-App which helps researchers to evaluate how human gene mutations affect splicing and the phenotype.
+A Web-App which helps researchers to evaluate how human gene mutations affect splicing and the phenotype.
 
-The project is under development. The fornt-end is under construction in this repo at this time. It is base on VueJS using a basic NodeJS API serving some standard JSON responses.
+The project is under development. The fornt-end is under construction in this repo at this time. It is base on Vue3 , Vuex, Bootstrap and MaterialDesig.
+A simple NodeJS API is serving some standard JSON responses as the backend at this time.
