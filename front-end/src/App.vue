@@ -1,30 +1,40 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Navbar id="navv" />
+  <router-view class="container mt-5 shadow-sm"/>
 </template>
+
+<script>
+import Navbar from '@/components/Navbar.vue'
+export default {
+  components: {
+    Navbar,
+  }
+}
+</script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.navbar-brand {
+  color: #b7d3ff!important;
+}
+#navv a {
+  color: #fff;
 }
 
-#nav a {
+#navv a.router-link-exact-active {
   font-weight: bold;
-  color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.card{
+  border-radius : 10px;
+  border: none;
 }
+
+@import'~bootstrap/dist/css/bootstrap.css'
 </style>
