@@ -1,6 +1,6 @@
 <template>
   <Navbar id="navv" />
-  <router-view class="container mt-5 shadow-sm"/>
+  <router-view />
 </template>
 
 <script>

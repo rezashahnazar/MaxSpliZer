@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-dark navbar-expand-sm shadow" style="background-color: #003da5">
+    <nav class="navbar sticky-top navbar-dark navbar-expand-sm shadow" style="background-color: #003da5">
         <div class="container container-fluid">
             <span class="navbar-brand mb-0 h1 fw-light fst-italic">VarLookUp</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
