@@ -1,13 +1,15 @@
 <template>
   <Navbar id="navv" />
   <router-view />
+  <Footer />
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import Footer from '@/components/Footer.vue'
 export default {
   components: {
-    Navbar,
+    Navbar, Footer
   }
 }
 </script>
@@ -24,11 +26,12 @@ export default {
   color: #b7d3ff!important;
 }
 #navv a {
+  font-weight: 300;
   color: #fff;
 }
 
 #navv a.router-link-exact-active {
-  font-weight: bold;
+  font-weight:800;
 }
 
 .card{
