@@ -21,25 +21,32 @@
             </div>
 
             <div v-if="st">
-              <div class="col col-md-6 mx-auto mt-5">
-                <div class="form-outline mb-4">
-                  <input type="text" id="varinput" class="form-control bg-light" v-model="vcode" placeholder="c.160del (for example)"/>
-                  <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
+              <form @submit.prevent="lookvar">
+                <div class="col col-md-6 mx-auto mt-5">
+                  <div class="form-outline mb-4">
+                    <input type="text" id="varinput" class="form-control bg-light" v-model="vcode" placeholder="c.15000C>G (for example)" autocomplete="off"/>
+                    <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <button class="btn btn-primary" v-if="vcode" @click="lookvar">
-                  <span class="text-warning">predict</span> 
-                  NG_009060.1(LDLR):{{vcode}}
-                </button>
-              </div>
+                <div>
+                  <button class="btn btn-primary btn-rounded btn-lg" :disabled="!vcode">
+                    <i class="fas fa-magic"></i>
+                    &nbsp;
+                    <span class="text-warning">predict</span> 
+                    NG_009060.1(LDLR):{{vcode}}
+                  </button>
+                </div>
+              </form>
             </div>
             <div v-else>
-              <button class="my-4 btn btn-primary" @click="reload">Try again</button>
+              <button class="my-4 btn btn-secondary btn-lg" @click="reload">
+                <i class="fas fa-redo"></i>
+                &nbsp;
+                Try again
+              </button>
             </div>
             <div v-for="el in resdata" :key="el">
-              <h3>{{ el }}</h3>
-              
+              <p class="card"> {{ el }} </p>
             </div>
           </div>
         </div>
