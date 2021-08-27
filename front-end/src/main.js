@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import 'mdb-vue-ui-kit/css/mdb.min.css';
+import 'mdb-ui-kit/css/mdb.min.css'
+import 'mdb-ui-kit';
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -16,4 +17,4 @@ library.add(far);
 import { dom } from "@fortawesome/fontawesome-svg-core";
 dom.watch();
 
-createApp(App).use(store).use(router).use(FontAwesomeIcon).mount('#app')
+createApp(App).use(store).use(router).component('font-awesome-icon',FontAwesomeIcon).mount('#app')
