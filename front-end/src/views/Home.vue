@@ -21,31 +21,31 @@
             </div>
 
             <div v-if="st">
-              <form @submit.prevent="lookvar">
+              <form @submit.prevent="doLookvar">
                 <div class="col col-md-6 mx-auto mt-5">
                   <div class="form-outline mb-4">
-                    <input type="text" id="varinput" class="form-control bg-light" v-model="vcode" placeholder="c.15000C>G (for example)" autocomplete="off"/>
+                    <input type="text" id="varinput" class="form-control bg-light" v-model="cvcode" placeholder="c.15000C>G (for example)" autocomplete="off"/>
                     <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
                   </div>
                 </div>
                 <div>
-                  <button class="btn btn-primary btn-rounded btn-lg" :disabled="!vcode">
+                  <button class="btn btn-primary btn-rounded btn-lg" :disabled="!cvcode">
                     <i class="fas fa-magic"></i>
                     &nbsp;
                     <span class="text-warning">predict</span> 
-                    NG_009060.1(LDLR):{{vcode}}
+                    NG_009060.1(LDLR):{{ cvcode }}
                   </button>
                 </div>
               </form>
             </div>
             <div v-else>
-              <button class="my-4 btn btn-secondary btn-lg" @click="reload">
+              <button class="my-4 btn btn-secondary btn-lg" @click="doReload">
                 <i class="fas fa-redo"></i>
                 &nbsp;
                 Try again
               </button>
             </div>
-            <div v-for="el in resdata" :key="el">
+            <div v-for="el in $store.state.resdata" :key="el">
               <p class="card"> {{ el }} </p>
             </div>
           </div>
@@ -55,40 +55,34 @@
   </div>
 </div>
 </template>
-
+ 
 <script>
-import axios from 'axios'
 
 export default {
   name: 'Home',
   data(){
-    return {
-      st : 1,
-      vcode : '',
-      resdata : ''
+    return{
+      cvcode: ''
     }
   },
   methods: {
-    lookvar() {
-      this.st = 0
-      axios.get("http://localhost:3000/",{
-        params : {
-          variant : this.vcode
-        }
-      })
-      .then((response)=>{
-        this.resdata = response.data
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    doLookvar(){
+      this.$store.dispatch('lookvar')
     },
-    reload(){
-      this.st = 1
-      this.vcode = ''
-      this. resdata = ''
+    doReload(){
+      this.$store.commit('reload')
+      this.cvcode = ''
     }
-
+  },
+  computed: {
+    st(){
+      return this.$store.state.st
+    }
+  },
+  watch: {
+    cvcode(value){
+      this.$store.state.vcode = value
+    }
   }
 }
 
