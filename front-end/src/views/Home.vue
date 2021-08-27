@@ -58,6 +58,7 @@ export default {
     background: -webkit-linear-gradient(270deg, #003da5, #3375e8);
     /* margin-top: 3%; */
     padding: 3%;
+    height:100vh!important;
 }
 .register-left{
     text-align: center;
