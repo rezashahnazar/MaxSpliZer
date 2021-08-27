@@ -1,5 +1,5 @@
 <template>
-  <Navbar id="navv" />
+  <Navbar />
   <router-view />
   <Footer />
 </template>
@@ -22,22 +22,6 @@ export default {
   text-align: center;
 }
 
-.navbar-brand {
-  color: #b7d3ff!important;
-}
-#navv a {
-  font-weight: 300;
-  color: #fff;
-}
-
-#navv a.router-link-exact-active {
-  font-weight:800;
-}
-
-.card{
-  border-radius : 10px;
-  border: none;
-}
-
-@import'~bootstrap/dist/css/bootstrap.css'
+@import '~mdb-ui-kit/css/mdb.min.css';
+/* @import'~bootstrap/dist/css/bootstrap.css' */
 </style>

@@ -1,37 +1,35 @@
 <template>
 <div class="rvar">
-  <div class="row">
-    <div class="col-md-3 rvar-left">
+  <div class="row pt-4">
+    <div class="col-md-3 rvar-left mb-2 px-3">
       <img class="d-none d-md-inline" src="@/assets/dna.png" alt=""/>
-      <h2>Variant Lookup</h2>
-      <p>Predict a variant's effect on splicing
+      <h2>Variant Predictor</h2>
+      <p>
+      <span class="subt">Predict a variant's effect on splicing</span>
       <br>
-      <span>based on MAXENT model.</span>
+      <span class="subt-m">based on MAXENT model.</span>
       </p>
     </div>
     <div class="col-md-9 rvar-right mobile desktop"> 
-      <div class="">
-        <h3 class="rvar-heading text-muted fw-light">Variant Description</h3>
+      <div class="desk-up">
+        <!-- <h3 class="rvar-heading text-muted fw-light">Variant Description</h3> -->
         <div class="row rvar-form">
           <div class="col-md">
             <div class="text-center mb-4" >
-              <h3 class="text-dark mt-2">Gene: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1">NG_009060.1 (LDLR)</a></h3>
-              <h5 class="text-dark mt-2">Reference mRNA transcript: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527">NM_000527.5</a></h5>
+              <h4 class="text-dark mt-2">Gene: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1" target="_blank" rel="noopener noreferrer">NG_009060.1 (LDLR)</a></h4>
+              <h4 class="text-dark mt-2">Ref. mRNA: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527" target="_blank" rel="noopener noreferrer">NM_000527.5</a></h4>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Variant Name in HSGVc format" value="" />
+
+            <div class="col col-md-6 mx-auto mt-5"><div class="form-outline mb-4">
+              <input type="text" id="varinput" class="form-control bg-light" v-model="vcode" placeholder="c.160del (for example)"/>
+              <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
+            </div></div>
+            <div>
+              <button class="btn btn-primary" v-if="vcode">
+                <span class="text-warning">predict</span> 
+                NG_009060.1(LDLR):{{vcode}}
+              </button>
             </div>
-            <form action="#" method="post" id="form">
-              <div class="col-auto">
-                <label class="visually-hidden" for="variant">Variant code</label>
-                <div class="input-group">
-                  <div class="input-group-text">NG_009060.1(LDLR):c.</div>
-                  <input type="text" class="form-control  bg-light" name="variant" placeholder="160del (for example)">
-                </div>
-              </div>
-              <div class="form-text mb-3">Complete a variant name in HGVSc format.</div>
-              <input type="submit" value="locate" data-mdb-toggle="popover" class="btn btn-primary btn-rounded ripple-surface px-5">  
-            </form>    
           </div>
         </div>
       </div>
@@ -44,8 +42,10 @@
 
 export default {
   name: 'Home',
-  components: {
-    
+  data(){
+    return {
+      vcode : ''
+    }
   }
 }
 </script>
@@ -58,24 +58,15 @@ export default {
 
 .rvar{
     background: -webkit-linear-gradient(270deg, #003da5, #3375e8);
-    padding: 3%;
+    padding: 0%;
     height:100vh!important;
 }
 .rvar-left{
     text-align: center;
     color: #fff;
-    margin-top: 4%;
+    margin-top: 2%;
 }
-.rvar-left input{
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    width: 60%;
-    background: #f8f9fa;
-    color: #383d41;
-    margin-top: 30%;
-    cursor: pointer;
-}
+
 
 .rvar-right{
   background: #ebf0f8;
@@ -108,13 +99,13 @@ export default {
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
 }
-.rvar-left p{
-    font-weight:400 ;
-    padding: 12%;
-    margin-top: -9%; 
+
+.subt{
+  font-weight: 500;
 }
-.rvar-left span {
-  font-weight: 200;
+.subt-m{
+  font-weight: 100;
+  font-style: italic;
 }
 .rvar-left h2{
   font-weight: 600;
@@ -142,5 +133,13 @@ export default {
     margin-bottom: -15%;
     color: #495057;
 }
+.row{
+  --mdb-gutter-x:0;
+}
 
+@media (min-width: 801px) {
+  .desk-up{
+    margin-top: -10%;
+  }
+}
 </style>

@@ -1,9 +1,16 @@
 <template>
-    <nav class="navbar sticky-top navbar-dark navbar-expand-sm" style="background-color: #003da5">
-        <div class="container container-fluid">
-            <!-- <span class="navbar-brand mb-0 h1 fw-light fst-italic">VarLookUp</span> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-0">
+        <div class="container-fluid">
+            <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+            <span class="fas fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
@@ -30,3 +37,18 @@
         name: 'Navbar'
     }
 </script>
+
+<style scoped>
+nav{
+    background-color: #003da5!important;
+}
+nav a {
+  font-weight: 300;
+  color: #fff;
+}
+
+nav a.router-link-exact-active {
+  font-weight:800;
+} 
+
+</style>
