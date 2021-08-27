@@ -21,7 +21,7 @@
             </div>
 
             <div v-if="st">
-              <form @submit.prevent="doLookvar">
+              <form class="px-4" @submit.prevent="doLookvar">
                 <div class="col col-md-6 mx-auto mt-5">
                   <div class="form-outline mb-4">
                     <input type="text" id="varinput" class="form-control bg-light" v-model="cvcode" placeholder="c.15000C>G (for example)" autocomplete="off"/>
@@ -39,17 +39,16 @@
               </form>
             </div>
             <div v-else>
-              <button class="my-4 btn btn-secondary btn-lg" @click="doReload">
+              <button class="my-4 btn btn-warning btn-lg" @click="doReload">
                 <i class="fas fa-redo"></i>
                 &nbsp;
                 Try again
               </button>
             </div>
-            <div v-for="el in $store.state.resdata" :key="el">
-              <p class="card"> {{ el }} </p>
-            </div>
+            
           </div>
         </div>
+        <Report />
       </div>
     </div>
   </div>
@@ -57,13 +56,16 @@
 </template>
  
 <script>
-
+import Report from '@/components/Report.vue'
 export default {
   name: 'Home',
   data(){
     return{
       cvcode: ''
     }
+  },
+  components:{
+    Report
   },
   methods: {
     doLookvar(){
@@ -97,7 +99,7 @@ export default {
 .rvar{
     background: -webkit-linear-gradient(270deg, #003da5, #3375e8);
     padding: 0%;
-    height:100vh!important;
+    min-height:100vh!important;
 }
 .rvar-left{
     text-align: center;
@@ -108,6 +110,7 @@ export default {
 
 .rvar-right{
   background: #ebf0f8;
+  padding-bottom: 30px!important;
 }
 @media (max-width: 800px) {
   .mobile {
@@ -149,7 +152,8 @@ export default {
   font-weight: 600;
 }
 .rvar .rvar-form{
-    padding: 10%;
+    padding-top: 10%;
+    padding-bottom: 5%;
     margin-top: 10%;
 }
 .btnRvar{
