@@ -20,15 +20,22 @@
               <h4 class="text-dark mt-2">Ref. mRNA: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527" target="_blank" rel="noopener noreferrer">NM_000527.5</a></h4>
             </div>
 
-            <div class="col col-md-6 mx-auto mt-5"><div class="form-outline mb-4">
-              <input type="text" id="varinput" class="form-control bg-light" v-model="vcode" placeholder="c.160del (for example)"/>
-              <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
-            </div></div>
-            <div>
-              <button class="btn btn-primary" v-if="vcode" @click="lookvar">
-                <span class="text-warning">predict</span> 
-                NG_009060.1(LDLR):{{vcode}}
-              </button>
+            <div v-if="st">
+              <div class="col col-md-6 mx-auto mt-5">
+                <div class="form-outline mb-4">
+                  <input type="text" id="varinput" class="form-control bg-light" v-model="vcode" placeholder="c.160del (for example)"/>
+                  <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
+                </div>
+              </div>
+              <div>
+                <button class="btn btn-primary" v-if="vcode" @click="lookvar">
+                  <span class="text-warning">predict</span> 
+                  NG_009060.1(LDLR):{{vcode}}
+                </button>
+              </div>
+            </div>
+            <div v-else>
+              <button class="my-4 btn btn-primary" @click="reload">Try again</button>
             </div>
             <div v-for="el in resdata" :key="el">
               <h3>{{ el }}</h3>
@@ -49,24 +56,30 @@ export default {
   name: 'Home',
   data(){
     return {
+      st : 1,
       vcode : '',
       resdata : ''
     }
   },
   methods: {
     lookvar() {
+      this.st = 0
       axios.get("http://localhost:3000/",{
         params : {
           variant : this.vcode
         }
       })
       .then((response)=>{
-        console.log(response.data)
         this.resdata = response.data
       })
       .catch((error) => {
         console.log(error)
       })
+    },
+    reload(){
+      this.st = 1
+      this.vcode = ''
+      this. resdata = ''
     }
 
   }
