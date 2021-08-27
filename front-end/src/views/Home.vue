@@ -25,10 +25,14 @@
               <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
             </div></div>
             <div>
-              <button class="btn btn-primary" v-if="vcode">
+              <button class="btn btn-primary" v-if="vcode" @click="lookvar">
                 <span class="text-warning">predict</span> 
                 NG_009060.1(LDLR):{{vcode}}
               </button>
+            </div>
+            <div v-for="el in resdata" :key="el">
+              <h3>{{ el }}</h3>
+              
             </div>
           </div>
         </div>
@@ -39,13 +43,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   name: 'Home',
   data(){
     return {
-      vcode : ''
+      vcode : '',
+      resdata : ''
     }
+  },
+  methods: {
+    lookvar() {
+      axios.get("http://localhost:3000/",{
+        params : {
+          variant : this.vcode
+        }
+      })
+      .then((response)=>{
+        console.log(response.data)
+        this.resdata = response.data
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }
+
   }
 }
 </script>
