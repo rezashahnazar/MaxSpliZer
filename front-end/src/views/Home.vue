@@ -1,16 +1,18 @@
 <template>
-<div class="register">
+<div class="rvar">
   <div class="row">
-    <div class="col-md-3 register-left">
-      <img src="@/assets/dna.png" alt=""/>
+    <div class="col-md-3 rvar-left">
+      <img class="d-none d-md-inline" src="@/assets/dna.png" alt=""/>
       <h2>Variant Lookup</h2>
-      <p>Enjoy the thorough anlysis of human gene variants.</p>
-      <!-- <input type="submit" name="" value="Login"/><br/> -->
+      <p>Predict a variant's effect on splicing
+      <br>
+      <span>based on MAXENT model.</span>
+      </p>
     </div>
-    <div class="col-md-9 register-right"> 
+    <div class="col-md-9 rvar-right mobile desktop"> 
       <div class="">
-        <h3 class="register-heading text-muted fw-light">Variant Description</h3>
-        <div class="row register-form">
+        <h3 class="rvar-heading text-muted fw-light">Variant Description</h3>
+        <div class="row rvar-form">
           <div class="col-md">
             <div class="text-center mb-4" >
               <h3 class="text-dark mt-2">Gene: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1">NG_009060.1 (LDLR)</a></h3>
@@ -54,35 +56,44 @@ export default {
   border-radius : 25px;
 }
 
-.register{
+.rvar{
     background: -webkit-linear-gradient(270deg, #003da5, #3375e8);
-    /* margin-top: 3%; */
     padding: 3%;
     height:100vh!important;
 }
-.register-left{
+.rvar-left{
     text-align: center;
     color: #fff;
     margin-top: 4%;
 }
-.register-left input{
+.rvar-left input{
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
     width: 60%;
     background: #f8f9fa;
-    font-weight: bold;
     color: #383d41;
     margin-top: 30%;
-    margin-bottom: 3%;
     cursor: pointer;
 }
-.register-right{
-    background: #f8f9fa;
+
+.rvar-right{
+  background: #ebf0f8;
+}
+@media (max-width: 800px) {
+  .mobile {
+    border-top-left-radius: 50% 10%;
+    border-top-right-radius: 50% 10%;
+  }
+}
+@media (min-width: 801px) {
+  .desktop{
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }
-.register-left img{
+
+}
+.rvar-left img{
     margin-top: 15%;
     margin-bottom: 5%;
     width: 25%;
@@ -97,16 +108,22 @@ export default {
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
 }
-.register-left p{
-    font-weight:300 ;
+.rvar-left p{
+    font-weight:400 ;
     padding: 12%;
     margin-top: -9%; 
 }
-.register .register-form{
+.rvar-left span {
+  font-weight: 200;
+}
+.rvar-left h2{
+  font-weight: 600;
+}
+.rvar .rvar-form{
     padding: 10%;
     margin-top: 10%;
 }
-.btnRegister{
+.btnRvar{
     float: right;
     margin-top: 10%;
     border: none;
@@ -118,33 +135,8 @@ export default {
     width: 50%;
     cursor: pointer;
 }
-.register .nav-tabs{
-    margin-top: 3%;
-    border: none;
-    background: #0062cc;
-    border-radius: 1.5rem;
-    width: 28%;
-    float: right;
-}
-.register .nav-tabs .nav-link{
-    padding: 2%;
-    height: 34px;
-    font-weight: 600;
-    color: #fff;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-}
-.register .nav-tabs .nav-link:hover{
-    border: none;
-}
-.register .nav-tabs .nav-link.active{
-    width: 100px;
-    color: #0062cc;
-    border: 2px solid #0062cc;
-    border-top-left-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-}
-.register-heading{
+
+.rvar-heading{
     text-align: center;
     margin-top: 8%;
     margin-bottom: -15%;
