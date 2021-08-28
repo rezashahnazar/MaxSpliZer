@@ -1,5 +1,5 @@
 <template>
-    <div class="report card">
+    <div class="report card fullwidth">
         <div v-if="$store.state.resdata.rep_status==3">
             <h1></h1>
             <p class="note note-danger"><strong>Sorry!</strong> 
@@ -7,9 +7,36 @@
             </p>
         </div>
         <div v-if="$store.state.resdata.rep_status==2">
-            <h1></h1>
+            
             <p class="note note-success"><strong>Well done!</strong> 
             {{ $store.state.resdata.intp }}
+            <div class="card">
+                <table class="table align-middle table-responsive border-success">
+                    <tbody class="fw-bold">
+                        <tr>
+                            <th scope="row p-0">Reference ID</th>
+                            <td class="text-success p-0">{{ $store.state.resdata.ref_id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row p-0">Gene description</th>
+                            <td class="text-success p-0 text-break">{{ $store.state.resdata.g_des }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row p-0">Genomic position</th>
+                            <td class="text-success p-0">{{ $store.state.resdata.g_pos }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row p-0">Reference Allele</th>
+                            <td class="text-success p-0">{{ $store.state.resdata.ref_allele }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row p-0">Altered to</th>
+                            <td class="text-success p-0">{{ $store.state.resdata.alt_allele }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <strong class="px-1">{{ $store.state.resdata.note }}</strong>
+            </div>
             </p>
         </div>
         <div class="" v-if="$store.state.resdata.rep_status==1">
@@ -233,11 +260,11 @@
     box-shadow : none;
 }
 .strue{
-    background-color: #368F8B;
+    background-color: #20c997;
     color:white;
     }
 .sfalse{
-    background-color: #ca054D;
+    background-color: #f93154;
     color:white;
 }
 
@@ -267,5 +294,10 @@ button:disabled.accordion-button::after{
     background-color: #9BB1FF;
     color:#2A4484
 }
-
+@media (max-width: 800px) {
+  .fullwidth{
+    margin-right: 1%;
+    margin-left: 1%;
+  }
+}
 </style>
