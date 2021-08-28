@@ -39,7 +39,7 @@
               </form>
             </div>
             <div v-else>
-              <button class="my-4 btn btn-warning btn-lg" @click="doReload">
+              <button class="my-4 btn btn-secondary btn-lg" @click="doReload">
                 <i class="fas fa-redo"></i>
                 &nbsp;
                 Try again
