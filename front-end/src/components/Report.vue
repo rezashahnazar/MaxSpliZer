@@ -19,14 +19,15 @@
                     <h2 class="accordion-header" id="flush-headingOne">
                     <button
                         class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_a_acc , sfalse : !$store.state.resdata.met_a_acc}"
-                        type="button"
+                        type="button" :disabled="!$store.state.resdata.met_a_acc"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#flush-collapseOne"
                         aria-expanded="false"
                         aria-controls="flush-collapseOne"
                         
                     >
-                        Scenario A, Acceptor site:
+                        
+                    <div style="pointer-events: none" class="d-inline text-center disabled">Scenario A, Acceptor site:<img src="@/assets/svg/splicingAA.svg" height="38" class="m-2"></div>
                     </button>
                     </h2>
                     <div
@@ -50,14 +51,14 @@
                 <div class="accordion-item col-md-6">
                     <h2 class="accordion-header" id="flush-headingTwo">
                     <button
-                        class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_a_adon , sfalse : !$store.state.resdata.met_a_don}"
-                        type="button"
+                        class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_a_don , sfalse : !$store.state.resdata.met_a_don}"
+                        type="button" :disabled="!$store.state.resdata.met_a_don"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#flush-collapseTwo"
                         aria-expanded="false"
                         aria-controls="flush-collapseTwo"
                     >
-                        Scenario A, Donnor site:
+                    <div style="pointer-events: none" class="d-inline text-center disabled">Scenario A, Donnor site:<img src="@/assets/svg/splicingAD.svg" height="38" class="m-2"></div>
                     </button>
                     </h2>
                     <div
@@ -84,13 +85,13 @@
                     <h2 class="accordion-header" id="flush-headingThree">
                     <button
                         class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_b_acc , sfalse : !$store.state.resdata.met_b_acc}"
-                        type="button"
+                        type="button" :disabled="!$store.state.resdata.met_b_acc"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#flush-collapseThree"
                         aria-expanded="false"
                         aria-controls="flush-collapseThree"
                     >
-                        Scenario B, Acceptor site:
+                    <div style="pointer-events: none" class="d-inline text-center disabled">Scenario B, Acceptor site:<img src="@/assets/svg/splicingBA.svg" height="38" class="m-2"></div>
                     </button>
                     </h2>
                     <div
@@ -114,14 +115,14 @@
                 <div class="accordion-item col-md-6">
                     <h2 class="accordion-header" id="flush-headingFour">
                     <button
-                        class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_b_don , sfalse : !$store.state.resdata.met_v_don}"
-                        type="button"
+                        class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_b_don , sfalse : !$store.state.resdata.met_b_don}"
+                        type="button" :disabled="!$store.state.resdata.met_b_don"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#flush-collapseFour"
                         aria-expanded="false"
                         aria-controls="flush-collapseFour"
                     >
-                        Scenario B, Donnor site:
+                    <div style="pointer-events: none" class="d-inline text-center disabled">Scenario B, Donnor site:<img src="@/assets/svg/splicingBD.svg" height="38" class="m-2"></div>
                     </button>
                     </h2>
                     <div
@@ -148,13 +149,13 @@
                     <h2 class="accordion-header" id="flush-headingFive">
                     <button
                         class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_c_acc , sfalse : !$store.state.resdata.met_c_acc}"
-                        type="button"
+                        type="button" :disabled="!$store.state.resdata.met_c_acc"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#flush-collapseFive"
                         aria-expanded="false"
                         aria-controls="flush-collapseFive"
                     >
-                        Scenario C, Acceptor site:
+                    <div style="pointer-events: none" class="d-inline text-center disabled">Scenario C, Acceptor site:<img src="@/assets/svg/splicingCA.svg" height="38" class="m-2"></div>
                     </button>
                     </h2>
                     <div
@@ -179,13 +180,13 @@
                     <h2 class="accordion-header" id="flush-headingSix">
                     <button
                         class="accordion-button collapsed" :class="{ strue: $store.state.resdata.met_c_don , sfalse : !$store.state.resdata.met_c_don}"
-                        type="button"
+                        type="button" :disabled="!$store.state.resdata.met_c_don"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#flush-collapseSix"
                         aria-expanded="false"
                         aria-controls="flush-collapseSix"
                     >
-                        Scenario C, Donnor site:
+                    <div style="pointer-events: none" class="d-inline text-center disabled">Scenario C, Donnor site:<img src="@/assets/svg/splicingCD.svg" height="38" class="m-2"></div>
                     </button>
                     </h2>
                     <div
@@ -210,7 +211,7 @@
             
             </div>
 
-            <div class="note note-info text-start mt-4"><strong>Here is the report:</strong> 
+            <div class="note note-info text-start mt-4"><strong>Final Report:</strong> 
             <p>{{ $store.state.resdata.Report.slice(1).join("\n") }}</p>
             </div>
         </div>
@@ -232,9 +233,39 @@
     box-shadow : none;
 }
 .strue{
-    background-color: #9af0ff;
-}
+    background-color: #368F8B;
+    color:white;
+    }
 .sfalse{
-    background-color: #ff9ac9;
+    background-color: #ca054D;
+    color:white;
 }
+
+.collapsed{
+    color:white!important;
+}
+
+button:disabled.accordion-button::after{
+    display :none;
+}
+.accordion-item{
+    background : none;
+    border: none;
+}
+.accordion-item:last-of-type .accordion-button.collapsed{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.accordion-button:after{
+    background-image: url('~@/assets/svg/arrow-white.svg');
+}
+
+.accordion-button:not(.collapsed):after{
+    background-image:  url('~@/assets/svg/arrow-blue.svg');
+}
+.accordion-button:not(.collapsed){
+    background-color: #9BB1FF;
+    color:#2A4484
+}
+
 </style>
