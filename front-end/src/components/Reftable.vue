@@ -4,11 +4,11 @@
                 <table class="table align-middle table-responsive border-success">
                     <tbody class="fw-bold">
                         <tr class="lowh">
-                            <th scope="row p-0">Reference ID</th>
+                            <th scope="row p-0">Reference Gene</th>
                             <td class="text-success p-0">{{ $store.state.resdata.ref_id }}</td>
                         </tr>
                         <tr class="lowh">
-                            <th scope="row p-0">Gene description</th>
+                            <th scope="row p-0">Genomic description</th>
                             <td class="text-success p-0 text-break">{{ $store.state.resdata.g_des }}</td>
                         </tr>
                         <tr class="lowh">

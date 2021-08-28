@@ -1,5 +1,5 @@
 <template>
-    <div class="report card fullwidth">
+    <div class="report card fullwidth" style="margin-top: -3%; margin-bottom: 3%;">
         <div v-if="$store.state.resdata.rep_status==3">
             
             <p class="note note-danger"><strong>Sorry!</strong> 
@@ -8,7 +8,7 @@
         </div>
         <div v-if="$store.state.resdata.rep_status==2">
             
-            <p class="note note-success"><strong>Well!</strong> 
+            <p class="note note-success"><strong>Oops!</strong> 
             {{ $store.state.resdata.intp }}
             </p>
             
@@ -23,7 +23,7 @@
             <br>
             <Toggles />
 
-            <div class="note note-dark text-start mt-4"><strong>Text Report:</strong> 
+            <div class="note note-info text-start mt-4"><strong>Text Report:</strong> 
             <p>{{ $store.state.resdata.Report.slice(1).join("\n") }}</p>
             </div>
         </div>

@@ -16,14 +16,14 @@
         <div class="row rvar-form">
           <div class="col-md">
             <div class="text-center mb-4" >
-              <h5 class="text-dark mt-2">Gene: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1" target="_blank" rel="noopener noreferrer">NG_009060.1 (LDLR)</a></h5>
-              <h5 class="text-dark mt-2">Ref. mRNA: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527" target="_blank" rel="noopener noreferrer">NM_000527.5</a></h5>
+              <h5 class="text-dark mt-2 fw-light">Gene: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1" target="_blank" rel="noopener noreferrer">NG_009060.1 (LDLR)</a></h5>
+              <h5 class="text-dark mt-2 fw-light">Ref. mRNA: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527" target="_blank" rel="noopener noreferrer">NM_000527.5</a></h5>
             </div>
 
             <div v-if="st">
               <form class="px-4" @submit.prevent="doLookvar">
                 <div class="col col-md-6 mx-auto mt-5">
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-5">
                     <input type="text" id="varinput" class="form-control bg-light" v-model="cvcode" placeholder="c.15000C>G (for example)" autocomplete="off"/>
                     <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
                   </div>
