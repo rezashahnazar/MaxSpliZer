@@ -1,31 +1,37 @@
 <template>
-<div class="rvar">
+<div>
+  <div class="rvar">
   <div class="row pt-4">
-    <div class="col-md-3 rvar-left mb-2 px-3">
+    <div class="col-md-3 rvar-left mb-3 px-3">
       <img class="d-none d-md-inline" src="@/assets/dna.png" alt=""/>
-      <h2>Variant Predictor</h2>
-      <p>
-      <span class="subt">Predict a variant's effect on splicing</span>
+      <h1 id="vp" class="mb-2">Variant Predict</h1>
+      <span class="subt">Predicting the effect of variants on splicing </span>
       <br>
-      <span class="subt-m">based on MAXENT model.</span>
-      </p>
+      <div class="subt-m mx-auto mb-3 mt-1">
+        <span>Based on the maximum entropy model<sup>1</sup></span>
+        <span>, According to the ClinGen variant curation expert panel consensus guidelines for LDLR variant classification.<sup>2</sup></span>
+        <span>We use </span>
+        <a class="subt-link" href="https://mutalyzer.nl/" target="_blank" rel="noopener noreferrer">Mutalyzer v2.0.34</a>
+        <span> and </span>
+        <a class="subt-link" href="http://hollywood.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html" target="_blank" rel="noopener noreferrer">MaxEntScan</a>
+        <span> web services to predict the effect.</span>
+      </div>
     </div>
     <div class="col-md-9 rvar-right mobile desktop"> 
-      <div class="desk-up">
-        <!-- <h3 class="rvar-heading text-muted fw-light">Variant Description</h3> -->
+      <div class="desk-up ">
         <div class="row rvar-form">
           <div class="col-md">
-            <div class="text-center mb-4" >
-              <h5 class="text-dark mt-2 fw-light">Gene: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1" target="_blank" rel="noopener noreferrer">NG_009060.1 (LDLR)</a></h5>
-              <h5 class="text-dark mt-2 fw-light">Ref. mRNA: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527" target="_blank" rel="noopener noreferrer">NM_000527.5</a></h5>
+            <div class="text-center" >
+              <h5 class="text-dark mt-2 fw-light">LOCUS: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1" target="_blank" rel="noopener noreferrer">NG_009060.1 (LDLR)</a></h5>
+              <h5 class="text-dark mt-2 fw-light">Transcript: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527" target="_blank" rel="noopener noreferrer">NM_000527.5</a></h5>
             </div>
 
             <div v-if="st">
-              <form class="px-4" @submit.prevent="doLookvar">
-                <div class="col col-md-6 mx-auto mt-5">
-                  <div class="form-outline mb-5">
-                    <input type="text" id="varinput" class="form-control bg-light" v-model="cvcode" placeholder="c.15000C>G (for example)" autocomplete="off"/>
-                    <label class="form-label" for="varinput">Type a variant name in HGVSc format.</label>
+              <form class="px-5" @submit.prevent="doLookvar">
+                <div class="col col-md-6 mx-auto mobform mt-5">
+                  <div class="form-outline mobform mb-5">
+                    <input type="text" id="varinput" class="form-control bg-light" v-model="cvcode" autocomplete="on"/>
+                    <label class="form-label" for="varinput">Enter a variant in HGVSc format.</label>
                   </div>
                 </div>
                 <div>
@@ -53,6 +59,27 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="text-start text-white small fst-italic pb-4 pt-4" style="background-color:#3375e8">  
+  <div class="container">
+    <span>
+    1. Yeo G, Burge CB. Maximum entropy modeling of short sequence motifs with applications to RNA splicing signals. 
+    Journal of computational biology. 2004 Mar 1;11(2-3):377-94. </span>
+    <a class="subt-link" href="https://doi.org/10.1089/1066527041410418" target="_blank" rel="noopener noreferrer">https://doi.org/10.1089/1066527041410418</a>
+    <br>
+    <span>
+    2. Chora JR, Iacocca MA, Tichy L, Wand H, Kurtz CL, Zimmermann H, Leon A, Williams M, Humphries SE, Hooper AJ, Trinder M. 
+    The Clinical Genome Resource (ClinGen) Familial Hypercholesterolemia Variant Curation Expert Panel consensus guidelines for LDLR variant classification. medRxiv. 2021 Jan 1. </span>
+    <a class="subt-link" href="https://doi.org/10.1101/2021.03.17.21252755" target="_blank" rel="noopener noreferrer">https://doi.org/10.1101/2021.03.17.21252755</a>
+  </div>
+</div>
+
+
+
+</div>
+
 </template>
  
 <script>
@@ -107,24 +134,56 @@ export default {
     margin-top: 2%;
 }
 
-
 .rvar-right{
   background: #ebf0f8;
   padding-bottom: 30px!important;
 }
-@media (max-width: 800px) {
+
+@media (max-width: 768px) {
   .mobile {
     border-top-left-radius: 50% 10%;
     border-top-right-radius: 50% 10%;
+    min-height: 50vh;
+  }
+  .mobform {
+    margin-top: 4vh!important ;
+    margin-bottom: 4vh!important;
+  }
+  .subt-m{
+    font-weight: 100;
+    font-style: italic;
+    font-size:9pt!important;
+    line-height: 14pt;
+    max-width: 80%!important;
+  }
+  .subt{
+    font-size: 90%;
+  }
+  #vp{
+    font-size: 33pt;
+    font-weight: 400;
   }
 }
-@media (min-width: 801px) {
+@media (min-width: 769px) {
   .desktop{
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
+  }
+   .desk-up{
+    margin-top: -10%;
+  }
+  #vp{
+    font-size: 5;
+    font-weight: 400;
+  }
+  .subt-m{
+  font-weight: 100;
+  font-style: italic;
+  font-size:85%;
+  max-width:80%!important;
+}
 }
 
-}
 .rvar-left img{
     margin-top: 15%;
     margin-bottom: 5%;
@@ -141,16 +200,18 @@ export default {
     100% { transform: translateY(-20px); }
 }
 
+
+
 .subt{
-  font-weight: 500;
-}
-.subt-m{
-  font-weight: 100;
-  font-style: italic;
-}
-.rvar-left h2{
   font-weight: 600;
 }
+
+
+a.subt-link {
+  color:#ffc107;
+}
+
+
 .rvar .rvar-form{
     padding-top: 10%;
     padding-bottom: 5%;
@@ -169,19 +230,9 @@ export default {
     cursor: pointer;
 }
 
-.rvar-heading{
-    text-align: center;
-    margin-top: 8%;
-    margin-bottom: -15%;
-    color: #495057;
-}
 .row{
   --mdb-gutter-x:0;
 }
 
-@media (min-width: 801px) {
-  .desk-up{
-    margin-top: -10%;
-  }
-}
+
 </style>
