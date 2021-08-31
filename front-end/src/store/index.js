@@ -15,7 +15,7 @@ export default createStore({
       state. resdata = ''
     },
     varload(state, resd){
-      state.st = 0
+      
       state.resdata = resd
     },
     updateVcode(value){
@@ -24,6 +24,7 @@ export default createStore({
   },
   actions: {
     lookvar({commit}) {
+      this.state.st = 0
       axios.get("http://127.0.0.1:8248/maxent",{
         params : {
           variant : this.state.vcode

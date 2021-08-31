@@ -44,12 +44,16 @@
                 </div>
               </form>
             </div>
-            <div v-else>
-              <button class="my-4 btn btn-secondary btn-lg" @click="doReload">
+            <div v-else class="pt-2">
+              
+              <div><button class="my-4 btn btn-secondary btn-lg" @click="doReload">
                 <i class="fas fa-redo"></i>
                 &nbsp;
                 Try again
-              </button>
+              </button></div>
+              <div v-if="$store.state.resdata==''" class="spinner-border text-secondary mt-4" role="status">
+               <span class="visually-hidden">Loading...</span>
+              </div>
             </div>
             
           </div>
