@@ -24,7 +24,7 @@
                             <td class="text-success p-0">{{ $store.state.resdata.ref_allele }}</td>
                         </tr>
                         <tr class="lowh">
-                            <th scope="row p-0">Alternate Allel</th>
+                            <th scope="row p-0">Alternate Allele</th>
                             <td class="text-success p-0">{{ $store.state.resdata.alt_allele }}</td>
                         </tr>
                         <tr class="lowh" v-if="$store.state.resdata.rep_status==1">

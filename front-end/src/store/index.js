@@ -6,13 +6,15 @@ export default createStore({
   state: {
     st : 1,
     vcode : '',
-    resdata : ''
+    resdata : '',
+    errormsg : 0
   },
   mutations: {
     reload(state){
       state.st = 1
       state.vcode = ''
-      state. resdata = ''
+      state.resdata = ''
+      state.errormsg = 0
     },
     varload(state, resd){
       
@@ -33,9 +35,11 @@ export default createStore({
       .then(response => response.data)
       .then(results => {
         commit('varload', results)
+        this.state.errormsg = 0
       })
       .catch((error) => {
         console.log(error)
+        this.state.errormsg = 1
       })
     },
     

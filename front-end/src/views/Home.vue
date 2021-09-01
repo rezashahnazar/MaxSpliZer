@@ -10,7 +10,7 @@
       <div class="subt-m mx-auto mb-3 mt-1">
         <span>Based on the maximum entropy model<sup>1</sup></span>
         <span>, According to the ClinGen variant curation expert panel consensus guidelines for LDLR variant classification.<sup>2</sup></span>
-        <span>We use </span>
+        <span> We use </span>
         <a class="subt-link" href="https://mutalyzer.nl/" target="_blank" rel="noopener noreferrer">Mutalyzer v2.0.34</a>
         <span> and </span>
         <a class="subt-link" href="http://hollywood.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html" target="_blank" rel="noopener noreferrer">MaxEntScan</a>
@@ -53,6 +53,10 @@
               </button></div>
               <div v-if="$store.state.resdata==''" class="spinner-border text-secondary mt-4" role="status">
                <span class="visually-hidden">Loading...</span>
+              </div>
+              <div class="mt-4" v-if="$store.state.errormsg==1">
+                <p class="text-danger">There is a problem with internet connection ...</p>
+                
               </div>
             </div>
             
