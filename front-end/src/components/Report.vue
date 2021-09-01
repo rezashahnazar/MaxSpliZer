@@ -5,6 +5,8 @@
             You have entered <span class="fw-bold">{{$store.state.vcode}}</span>
             <br>
             which is not a valid variant name in HGVSc format. 
+            <br>
+            <a style="text-transform: unset" href="http://varnomen.hgvs.org/recommendations/general/" class="text-primary" target="_blank" rel="noopener noreferrer">Read more about HGVS nomenclature ></a>
             </p>
             <p v-else class="note note-danger"><strong></strong> 
             You have entered <span class="fw-bold">{{$store.state.vcode}}</span>
