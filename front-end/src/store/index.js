@@ -25,7 +25,7 @@ export default createStore({
   actions: {
     lookvar({commit}) {
       this.state.st = 0
-      axios.get("http://127.0.0.1:8248/maxent",{
+      axios.get("http://185.239.107.96:8000/maxent",{
         params : {
           variant : this.state.vcode
         }
