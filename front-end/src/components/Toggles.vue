@@ -12,7 +12,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario A, Acceptor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/splicingAA.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/aa.svg" height="38" class="m-2"></div>
             </div>
             </button>
             </h2>
@@ -59,7 +59,7 @@
 
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario A, Donor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/splicingAD.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/ad.svg" height="38" class="m-2"></div>
             </div>
             </button>
 
@@ -109,7 +109,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario B, Acceptor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/splicingBA.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/ba.svg" height="38" class="m-2"></div>
             </div>
             </button>
 
@@ -161,7 +161,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario B, Donor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/splicingBD.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/bd.svg" height="38" class="m-2"></div>
             </div>
             </button>
             
@@ -216,7 +216,7 @@
 
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario C, Acceptor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/splicingCA.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/ca.svg" height="38" class="m-2"></div>
             </div>
             </button>
             </h2>
@@ -300,7 +300,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario C, Donor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/splicingCD.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/cd.svg" height="38" class="m-2"></div>
             </div>
             </button>
             </h2>
