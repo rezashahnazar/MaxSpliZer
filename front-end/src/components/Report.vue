@@ -1,8 +1,14 @@
 <template>
     <div class="report card fullwidth" style="margin-top: -3%; margin-bottom: 3%;">
         <div v-if="$store.state.resdata.rep_status==3">
-            
-            <p class="note note-danger"><strong></strong> 
+            <p v-if="$store.state.resdata.war_msg.includes('Expected')" class="note note-danger"><strong></strong> 
+            You have entered <span class="fw-bold">{{$store.state.vcode}}</span>
+            <br>
+            which is not a valid variant name in HGVSc format. 
+            </p>
+            <p v-else class="note note-danger"><strong></strong> 
+            You have entered <span class="fw-bold">{{$store.state.vcode}}</span>
+            <br> 
             {{ $store.state.resdata.war_msg }}
             </p>
         </div>

@@ -23,7 +23,7 @@
             data-mdb-parent="#accordionFlushToggler"
             >
             <div class="accordion-body">
-                <div v-if="$store.state.resdata.met_a_acc" class=" py-2">
+                <div v-if="$store.state.resdata.met_a_acc" >
                     <div class="row">
                         <p class="text-success">The variant is located at -20 to +3 bases of canonical acceptor splicing site of exon 
                             <span class="text-danger fw-bold">{{ $store.state.resdata.aff_exon }}</span>.
@@ -73,7 +73,7 @@
             data-mdb-parent="#accordionFlushToggler"
             >
             <div class="accordion-body">
-                <div v-if="$store.state.resdata.met_a_don" class=" py-2">
+                <div v-if="$store.state.resdata.met_a_don" >
                     
                     <div class="row">
                         <p class="text-success">The variant is located at -3 to +6 bases of canonical donor splicing site of exon 
@@ -127,11 +127,11 @@
             data-mdb-parent="#accordionFlushToggler"
             >
             <div class="accordion-body">
-                <div v-if="$store.state.resdata.met_b_acc" class=" py-2">
+                <div v-if="$store.state.resdata.met_b_acc" >
                     
                     <div class="row">
                         <p v-if="$store.state.resdata.new_ag" class="text-success my-0">
-                            Variant is located within the range and creates denovo AG site.
+                            The variant is located within the range and creates denovo AG site.
                             Wild type canonical acceptor motif:
                             <span class="text-danger">{{ $store.state.resdata.wt_can_acc_motif }}</span>
                             :
@@ -178,11 +178,11 @@
             data-mdb-parent="#accordionFlushToggler"
             >
             <div class="accordion-body">
-                <div v-if="$store.state.resdata.met_b_don" class=" py-2">
+                <div v-if="$store.state.resdata.met_b_don" >
                     
                     <div class="row">
                         <p v-if="$store.state.resdata.new_gt" class="text-success my-0">
-                            Variant is located within the range and creates denovo GT site.
+                            The variant is located within the range and creates denovo GT site.
                             Wild type canonical donor motif:
                             <span class="text-danger">{{ $store.state.resdata.wt_can_don_motif }}</span>
                             :
@@ -234,23 +234,30 @@
             <div class="accordion-body">
                 
 
-                <div v-if="$store.state.resdata.met_b_acc" class=" py-2">
+                <div v-if="$store.state.resdata.met_b_acc" >
                     
-                    <div v-if="$store.state.resdata.scen_c_ag_up" class=" py-2">
+                    <div v-if="$store.state.resdata.scen_c_ag_up">
                         
                         <div v-if="!$store.state.resdata.new_ag">
                             <div class="row">
                             <p class="text-success my-0">
-                                There is an upstram cryptic AG site close enough to the canonical acceptor AG of an exon.
-                                The cryptic acceptor motif is originally 
+                                The variant is within the range and does not create a denovo AG. There is an AG site in upstream (3 Nt).
+                                <br>
+                                Wild type canonical acceptor motif:
+                                <span class="text-danger">{{ $store.state.resdata.wt_can_acc_motif }}</span>
+                                <span class="text-danger">({{ $store.state.resdata.wt_can_acc_motif_score }})</span>
+                                <br>
+                                Wild type cryptic acceptor motif (upstream):
                                 <span class="text-danger">{{$store.state.resdata.scen_c_wt_acc_cryp_up_motif}}</span>
-                                <span class="text-danger"> (score: {{$store.state.resdata.scen_c_wt_acc_cryp_up_motif_score}})</span>
-                                which is altered to 
+                                <span class="text-danger">({{$store.state.resdata.scen_c_wt_acc_cryp_up_motif_score}})</span>
+                                Variant cryptic acceptor motif (upstream):
                                 <span class="text-danger">{{$store.state.resdata.scen_c_var_acc_cryp_up_motif}}</span>
-                                <span class="text-danger"> (score: {{$store.state.resdata.scen_c_var_acc_cryp_up_motif_score}})</span>
-                                . Therefore, "var. cryptic" to "wt. cryptic" ratio is 
+                                <span class="text-danger">({{$store.state.resdata.scen_c_var_acc_cryp_up_motif_score}})</span>
+                                <br>
+                                Var cryptic/Wt cryptic =
                                 <span class="text-danger">{{$store.state.resdata.scen_c_acc_up_ratio1}} </span>
-                                and "var. cryptic" to "wt. canonical" ratio is 
+                                <br>
+                                Var cryptic/Wt canonical =
                                 <span class="text-danger">{{$store.state.resdata.scen_c_acc_up_ratio2}}</span>                         
                             </p>
                         </div>
@@ -262,20 +269,27 @@
 
                         </div>
                     </div>
-                    <div v-if="$store.state.resdata.scen_c_ag_down" class=" py-2">
+                    <div v-if="$store.state.resdata.scen_c_ag_down" >
                         <div v-if="!$store.state.resdata.new_ag">
                             <div class="row">
                                 <p class="text-success my-0">
-                                    There is a downstream cryptic AG site close enough to the canonical acceptor AG of an exon.
-                                    The cryptic acceptor motif is originally 
+                                    The variant is within the range and does not create a denovo AG. There is an AG site in downstream (20 Nt).
+                                    <br>
+                                    Wild type canonical acceptor motif:
+                                    <span class="text-danger">{{ $store.state.resdata.wt_can_acc_motif }}</span>
+                                    <span class="text-danger">({{ $store.state.resdata.wt_can_acc_motif_score }})</span>
+                                    <br>
+                                    Wild type cryptic acceptor motif (downstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_wt_acc_cryp_down_motif}}</span>
-                                    <span class="text-danger"> (score: {{$store.state.resdata.scen_c_wt_acc_cryp_down_motif_score}})</span>
-                                    which is altered to 
+                                    <span class="text-danger">({{$store.state.resdata.scen_c_wt_acc_cryp_down_motif_score}})</span>
+                                    Variant cryptic acceptor motif (downstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_var_acc_cryp_down_motif}}</span>
-                                    <span class="text-danger"> (score: {{$store.state.resdata.scen_c_var_acc_cryp_down_motif_score}})</span>
-                                    . Therefore, "var. cryptic" to "wt. cryptic" ratio is 
+                                    <span class="text-danger">({{$store.state.resdata.scen_c_var_acc_cryp_down_motif_score}})</span>
+                                    <br>
+                                    Var cryptic/Wt cryptic =
                                     <span class="text-danger">{{$store.state.resdata.scen_c_acc_down_ratio1}} </span>
-                                    and "var. cryptic" to "wt. canonical" ratio is 
+                                    <br>
+                                    Var cryptic/Wt canonical =
                                     <span class="text-danger">{{$store.state.resdata.scen_c_acc_down_ratio2}}</span>                         
                                 </p>
                             </div>
@@ -287,7 +301,7 @@
                         </div>
                     </div>
                     <div v-if="$store.state.resdata.scen_c_ag_up + $store.state.resdata.scen_c_ag_down == 0">
-                        There is no AG in downstream (20 Nt) or upstream (3 Nt).
+                        The variant is within the range and does not create a denovo AG. There is no AG in downstream (20 Nt) or upstream (3 Nt).
                     </div>
                 
                 </div>
@@ -325,21 +339,28 @@
             >
             <div class="accordion-body">
                 
-                <div v-if="$store.state.resdata.met_b_don" class=" py-2">
-                    <div v-if="$store.state.resdata.scen_c_gt_up" class="py-2">
+                <div v-if="$store.state.resdata.met_b_don">
+                    <div v-if="$store.state.resdata.scen_c_gt_up" >
                         <div v-if="!$store.state.resdata.new_gt">
                             <div class="row">
                                 <p class="text-success my-0">
-                                    There is an upstram cryptic GT site close enough to the canonical donor GT of an exon.
-                                    The cryptic donor motif is originally 
+                                    The variant is within the range and does not create a denovo GT. There is a GT site in upstream (6 Nt).
+                                    <br>
+                                    Wild type canonical donor motif:
+                                    <span class="text-danger">{{ $store.state.resdata.wt_can_don_motif }}</span>
+                                    <span class="text-danger">({{ $store.state.resdata.wt_can_don_motif_score }})</span>
+                                    <br>
+                                    Wild type cryptic donor motif (upstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_wt_don_cryp_up_motif}}</span>
-                                    <span class="text-danger"> (score: {{$store.state.resdata.scen_c_wt_don_cryp_up_motif_score}})</span>
-                                    which is altered to 
+                                    <span class="text-danger">({{$store.state.resdata.scen_c_wt_don_cryp_up_motif_score}})</span>
+                                    Variant cryptic donor motif (upstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_var_don_cryp_up_motif}}</span>
-                                    <span class="text-danger"> (score: {{$store.state.resdata.scen_c_var_don_cryp_up_motif_score}})</span>
-                                    . Therefore, "var. cryptic" to "wt. cryptic" ratio is 
+                                    <span class="text-danger">({{$store.state.resdata.scen_c_var_don_cryp_up_motif_score}})</span>
+                                    <br>
+                                    Var cryptic/Wt cryptic =
                                     <span class="text-danger">{{$store.state.resdata.scen_c_don_up_ratio1}} </span>
-                                    and "var. cryptic" to "wt. canonical" ratio is 
+                                    <br>
+                                    Var cryptic/Wt canonical =
                                     <span class="text-danger">{{$store.state.resdata.scen_c_don_up_ratio2}}</span>                         
                                 </p>
                             </div>
@@ -350,22 +371,29 @@
                             </p>
                         </div>
                     </div>
-                    <div v-if="$store.state.resdata.scen_c_gt_down" class=" py-2">
+                    <div v-if="$store.state.resdata.scen_c_gt_down">
                         
                         <div v-if="!$store.state.resdata.new_gt">
                             <div class="row">
                             <p class="text-success my-0">
-                                There is a downstream cryptic GT site close enough to the canonical donor GT of an exon.
-                                The cryptic donor motif is originally 
-                                <span class="text-danger">{{$store.state.resdata.scen_c_wt_don_cryp_down_motif}}</span>
-                                <span class="text-danger"> (score: {{$store.state.resdata.scen_c_wt_don_cryp_down_motif_score}})</span>
-                                which is altered to 
-                                <span class="text-danger">{{$store.state.resdata.scen_c_var_don_cryp_down_motif}}</span>
-                                <span class="text-danger"> (score: {{$store.state.resdata.scen_c_var_don_cryp_down_motif_score}})</span>
-                                . Therefore, "var. cryptic" to "wt. cryptic" ratio is 
-                                <span class="text-danger">{{$store.state.resdata.scen_c_don_down_ratio1}} </span>
-                                and "var. cryptic" to "wt. canonical" ratio is 
-                                <span class="text-danger">{{$store.state.resdata.scen_c_don_down_ratio2}}</span>                         
+                                The variant is within the range and does not create a denovo GT. There is a GT site in downstream (3 Nt).
+                                <br>
+                                Wild type canonical donor motif:
+                                <span class="text-danger">{{ $store.state.resdata.wt_can_don_motif }}</span>
+                                <span class="text-danger">({{ $store.state.resdata.wt_can_don_motif_score }})</span>
+                                <br>
+                                Wild type cryptic donor motif (downstream):
+                                <span class="text-danger">{{$store.state.resdata.scen_c_wt_don_cryp_up_motif}}</span>
+                                <span class="text-danger">({{$store.state.resdata.scen_c_wt_don_cryp_up_motif_score}})</span>
+                                Variant cryptic donor motif (downstream):
+                                <span class="text-danger">{{$store.state.resdata.scen_c_var_don_cryp_up_motif}}</span>
+                                <span class="text-danger">({{$store.state.resdata.scen_c_var_don_cryp_up_motif_score}})</span>
+                                <br>
+                                Var cryptic/Wt cryptic =
+                                <span class="text-danger">{{$store.state.resdata.scen_c_don_up_ratio1}} </span>
+                                <br>
+                                Var cryptic/Wt canonical =
+                                <span class="text-danger">{{$store.state.resdata.scen_c_don_up_ratio2}}</span>                         
                             </p>
                         </div>
                         </div>
@@ -376,7 +404,7 @@
                         </div>
                     </div>
                     <div v-if="$store.state.resdata.scen_c_gt_up + $store.state.resdata.scen_c_gt_down == 0">
-                        There is no GT in downstream (3 Nt) or upstream (6 Nt).
+                        The variant is within the range and does not create a denovo GT. There is no GT in downstream (3 Nt) or upstream (6 Nt).
                     </div>
                 </div>
                 <div v-if="!$store.state.resdata.met_b_don">
