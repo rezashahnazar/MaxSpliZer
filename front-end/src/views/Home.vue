@@ -211,7 +211,7 @@ export default {
 
 
 .subt{
-  font-weight: 600;
+  font-weight: 400;
 }
 
 

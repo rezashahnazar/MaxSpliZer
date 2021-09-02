@@ -12,7 +12,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario A, Acceptor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/aa.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/a1.svg" height="38" class="m-2"></div>
             </div>
             </button>
             </h2>
@@ -61,7 +61,7 @@
 
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario A, Donor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/ad.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/a2.svg" height="38" class="m-2"></div>
             </div>
             </button>
 
@@ -114,7 +114,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario B, Acceptor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/ba.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/b1.svg" height="38" class="m-2"></div>
             </div>
             </button>
 
@@ -132,14 +132,17 @@
                     <div class="row">
                         <p v-if="$store.state.resdata.new_ag" class="text-success my-0">
                             The variant is located within the range and creates denovo AG site.
+                            <br>
                             Wild type canonical acceptor motif:
                             <span class="text-danger">{{ $store.state.resdata.wt_can_acc_motif }}</span>
-                            :
-                            <span class="text-danger">{{ $store.state.resdata.wt_can_acc_motif_score }}</span>
+                            
+                            (<span class="text-danger">{{ $store.state.resdata.wt_can_acc_motif_score }}</span>)
+                            <br>
                             Variant denovo acceptor motif:
                             <span class="text-danger">{{$store.state.resdata.scen_b_alt_ag_motif}}</span>
-                            :
-                            <span class="text-danger">{{$store.state.resdata.scen_b_alt_ag_motif_score}}</span>
+                            
+                            (<span class="text-danger">{{$store.state.resdata.scen_b_alt_ag_motif_score}}</span>)
+                            <br>
                             denovo Var/Wt ratio =
                             <span class="text-danger">{{$store.state.resdata.scen_b_acc_ratio}}</span>
                         </p>
@@ -166,7 +169,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario B, Donor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/bd.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/b2.svg" height="38" class="m-2"></div>
             </div>
             </button>
             
@@ -183,14 +186,17 @@
                     <div class="row">
                         <p v-if="$store.state.resdata.new_gt" class="text-success my-0">
                             The variant is located within the range and creates denovo GT site.
+                            <br>
                             Wild type canonical donor motif:
                             <span class="text-danger">{{ $store.state.resdata.wt_can_don_motif }}</span>
-                            :
-                            <span class="text-danger">{{ $store.state.resdata.wt_can_don_motif_score }}</span>
+                            
+                            (<span class="text-danger">{{ $store.state.resdata.wt_can_don_motif_score }}</span>)
+                            <br>
                             Variant denovo donor motif:
                             <span class="text-danger">{{$store.state.resdata.scen_b_alt_gt_motif}}</span>
-                            :
-                            <span class="text-danger">{{$store.state.resdata.scen_b_alt_gt_motif_score}}</span>
+                            
+                            (<span class="text-danger">{{$store.state.resdata.scen_b_alt_gt_motif_score}}</span>)
+                            <br>
                             denovo Var/Wt ratio =
                             <span class="text-danger">{{$store.state.resdata.scen_b_don_ratio}}</span>
                         </p>
@@ -221,7 +227,7 @@
 
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario C, Acceptor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/ca.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/c1.svg" height="38" class="m-2"></div>
             </div>
             </button>
             </h2>
@@ -250,6 +256,7 @@
                                 Wild type cryptic acceptor motif (upstream):
                                 <span class="text-danger">{{$store.state.resdata.scen_c_wt_acc_cryp_up_motif}}</span>
                                 <span class="text-danger">({{$store.state.resdata.scen_c_wt_acc_cryp_up_motif_score}})</span>
+                                <br>
                                 Variant cryptic acceptor motif (upstream):
                                 <span class="text-danger">{{$store.state.resdata.scen_c_var_acc_cryp_up_motif}}</span>
                                 <span class="text-danger">({{$store.state.resdata.scen_c_var_acc_cryp_up_motif_score}})</span>
@@ -282,6 +289,7 @@
                                     Wild type cryptic acceptor motif (downstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_wt_acc_cryp_down_motif}}</span>
                                     <span class="text-danger">({{$store.state.resdata.scen_c_wt_acc_cryp_down_motif_score}})</span>
+                                    <br>
                                     Variant cryptic acceptor motif (downstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_var_acc_cryp_down_motif}}</span>
                                     <span class="text-danger">({{$store.state.resdata.scen_c_var_acc_cryp_down_motif_score}})</span>
@@ -327,7 +335,7 @@
             >
             <div class="row">
                 <div style="pointer-events: none" class="text-center disabled col-12">Scenario C, Donor site</div>
-                <div class="col-12 text-center"><img src="@/assets/svg/cd.svg" height="38" class="m-2"></div>
+                <div class="col-12 text-center"><img src="@/assets/svg/c2.svg" height="38" class="m-2"></div>
             </div>
             </button>
             </h2>
@@ -353,6 +361,7 @@
                                     Wild type cryptic donor motif (upstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_wt_don_cryp_up_motif}}</span>
                                     <span class="text-danger">({{$store.state.resdata.scen_c_wt_don_cryp_up_motif_score}})</span>
+                                    <br>
                                     Variant cryptic donor motif (upstream):
                                     <span class="text-danger">{{$store.state.resdata.scen_c_var_don_cryp_up_motif}}</span>
                                     <span class="text-danger">({{$store.state.resdata.scen_c_var_don_cryp_up_motif_score}})</span>
@@ -385,6 +394,7 @@
                                 Wild type cryptic donor motif (downstream):
                                 <span class="text-danger">{{$store.state.resdata.scen_c_wt_don_cryp_up_motif}}</span>
                                 <span class="text-danger">({{$store.state.resdata.scen_c_wt_don_cryp_up_motif_score}})</span>
+                                <br>
                                 Variant cryptic donor motif (downstream):
                                 <span class="text-danger">{{$store.state.resdata.scen_c_var_don_cryp_up_motif}}</span>
                                 <span class="text-danger">({{$store.state.resdata.scen_c_var_don_cryp_up_motif_score}})</span>
