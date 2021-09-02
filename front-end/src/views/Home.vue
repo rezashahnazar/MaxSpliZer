@@ -51,7 +51,7 @@
                 &nbsp;
                 Try again
               </button></div>
-              <div v-if="$store.state.resdata==''" class="spinner-border text-secondary mt-4" role="status">
+              <div v-if="$store.state.resdata==''" class="spinner-grow text-secondary mt-4" role="status">
                <span class="visually-hidden">Loading...</span>
               </div>
               <div class="mt-4" v-if="$store.state.errormsg==1">
