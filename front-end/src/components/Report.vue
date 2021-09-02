@@ -1,5 +1,5 @@
 <template>
-    <div class="report card fullwidth" style="margin-top: -3%; margin-bottom: 3%;">
+    <div class="report card" style="margin-top: -3%; margin-bottom: 3%;">
         <div v-if="$store.state.resdata.rep_status==3">
             <p v-if="$store.state.resdata.war_msg.includes('Expected')" class="note note-danger"><strong></strong> 
             You have entered <span class="fw-bold">{{$store.state.vcode}}</span>
@@ -56,8 +56,8 @@ import Toggles from '@/components/Toggles.vue'
 
 <style scoped>
 .report{
-    margin-left : 10%;
-    margin-right:10%;
+    margin-left : 5%;
+    margin-right: 5%;
     background: #ebf0f8;
     white-space:pre-wrap;
     box-shadow : none;
