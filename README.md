@@ -18,4 +18,4 @@ ______
 
 ## Deployment
 The R project could be served in a docker container.
-Nginx could be configured using the "front-end/nginx.conf" file to serve the production build of the Vue app from the "/app" directory on a linux server. Nginx would also redirect all HTTP requests with the endpoint of "/maxent" to the docker port.
+Nginx could be configured using the "front-end/nginx.conf" file to serve the production build of the Vue app from "/app" directory on a linux server. Nginx would also redirect all HTTP requests with the endpoint of "/maxent" to the docker port.
