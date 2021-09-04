@@ -1,4 +1,4 @@
-# Gene LookUp
+# VariantPred
 Predicting the effect of variants on splicing.
 
 Based on the maximum entropy model, According to the ClinGen variant curation expert panel consensus guidelines for LDLR variant classification. We use [Mutalyzer v2.0.34](https://mutalyzer.nl/) and [MaxEntScan](http://hollywood.mit.edu/burgelab/maxent/Xmaxentscan_scoreseq.html) web services to predict the effect.
