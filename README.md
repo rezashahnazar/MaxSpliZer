@@ -1,4 +1,4 @@
-# VariantPred
+# MaxSpliZer
 
 **Predicting the effect of variants on splicing.**
 
