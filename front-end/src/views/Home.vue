@@ -4,8 +4,10 @@
   <div class="row pt-4">
     <div class="col-md-3 rvar-left mb-3 px-3">
       <img class="d-none d-md-inline" src="@/assets/dna.png" alt=""/>
-      <h1 id="vp" class="mb-2">Variant Predict</h1>
-      <span class="subt">Predicting the effect of variants on splicing </span>
+      <h1 id="vp" class="mb-2">MaxSpliZer</h1>
+      <span class="subt">Predicting the Effect of </span>
+        <span class="font-italic"> LDLR </span>
+       <span> Splice Variants</span>
       <br>
       <div class="subt-m mx-auto mb-3 mt-1">
         <span>Based on the maximum entropy model<sup>1</sup></span>
