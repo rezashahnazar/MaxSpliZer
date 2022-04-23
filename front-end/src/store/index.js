@@ -7,7 +7,9 @@ export default createStore({
     st : 1,
     vcode : '',
     resdata : '',
-    errormsg : 0
+    errormsg : 0,
+    gene : '',
+    genecode :''
   },
   mutations: {
     reload(state){
@@ -15,21 +17,21 @@ export default createStore({
       state.vcode = ''
       state.resdata = ''
       state.errormsg = 0
+      state.gene = ''
+      state.genecode = ''
     },
     varload(state, resd){
-      
       state.resdata = resd
-    },
-    updateVcode(value){
-      state.vcode = value
     }
+
   },
   actions: {
     lookvar({commit}) {
       this.state.st = 0
-      axios.get("/maxent",{
+      axios.get("https://maxsplizer.com/maxent",{
         params : {
-          variant : this.state.vcode
+          variant : this.state.vcode ,
+          gene : this.state.gene 
         }
       })
       .then(response => response.data)

@@ -23,13 +23,29 @@
       <div class="desk-up ">
         <div class="row rvar-form">
           <div class="col-md">
-            <div class="text-center" >
+            <!-- <div class="text-center" >
               <h5 class="text-dark mt-2 fw-light">LOCUS: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NG_009060.1" target="_blank" rel="noopener noreferrer">NG_009060.1 (LDLR)</a></h5>
               <h5 class="text-dark mt-2 fw-light">Transcript: <a class="text-decoration-none" href="https://www.ncbi.nlm.nih.gov/nuccore/NM_000527" target="_blank" rel="noopener noreferrer">NM_000527.5</a></h5>
+            </div> -->
+            <div v-if="!$store.state.resdata" class="row">
+              <div class="dropdown">
+                <button
+                  class="btn btn-primary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {{cgene ?  cgenecode : 'Choose A gene'}}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><span class="dropdown-item cpointer" @click="setLDLR">NG_009060.1(<i>LDLR</i>)</span></li>
+                  <li><span class="dropdown-item cpointer" @click="setFBN">NG_008805.2(<i>FBN1</i>)</span></li>
+                </ul>
+              </div>
             </div>
-
             <div v-if="st">
-              <form class="px-5" @submit.prevent="doLookvar">
+              <form v-if="cgene" class="px-5" @submit.prevent="doLookvar">
                 <div class="col col-md-6 mx-auto mobform mt-5">
                   <div class="form-outline mobform mb-5">
                     <input type="text" id="varinput" class="form-control bg-light" v-model="cvcode" autocomplete="on"/>
@@ -41,7 +57,7 @@
                     <i class="fas fa-magic"></i>
                     &nbsp;
                     <span class="text-warning">predict</span> 
-                    NG_009060.1(LDLR):{{ cvcode }}
+                    {{ cgenecode }}:{{ cvcode }}
                   </button>
                 </div>
               </form>
@@ -98,7 +114,9 @@ export default {
   name: 'Home',
   data(){
     return{
-      cvcode: ''
+      cvcode: '' , 
+      cgene: '' , 
+      cgenecode : ''
     }
   },
   components:{
@@ -111,6 +129,15 @@ export default {
     doReload(){
       this.$store.commit('reload')
       this.cvcode = ''
+      this.cgene = ''
+    }, 
+    setLDLR(){
+      this.cgene = 'LDLR'
+      this.cgenecode = 'NG_009060.1(LDLR)'
+    } , 
+    setFBN(){
+      this.cgene = 'FBN'
+      this.cgenecode = 'NG_008805.2(FBN1)'
     }
   },
   computed: {
@@ -121,6 +148,12 @@ export default {
   watch: {
     cvcode(value){
       this.$store.state.vcode = value
+    },
+    cgene(value){
+      this.$store.state.gene = value
+    },
+    cgenecode(value){
+      this.$store.state.genecode = value
     }
   }
 }
@@ -128,6 +161,9 @@ export default {
 </script>
 
 <style scoped>
+.cpointer{
+  cursor: pointer;
+}
 
 .btn{
   border-radius : 25px;

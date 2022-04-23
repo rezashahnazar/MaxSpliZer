@@ -4,6 +4,10 @@
                 <table class="table align-middle table-responsive border-success">
                     <tbody class="fw-bold">
                         <tr class="lowh">
+                            <th scope="row p-0">Gene</th>
+                            <td class="text-success p-0">{{ $store.state.genecode }}</td>
+                        </tr>
+                        <tr class="lowh">
                             <th scope="row p-0">HGVSc variant</th>
                             <td class="text-success p-0">{{ $store.state.vcode }}</td>
                         </tr>
