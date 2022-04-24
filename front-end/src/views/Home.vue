@@ -34,7 +34,9 @@
                   data-mdb-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  {{cgene ?  cgenecode : 'Choose A gene'}}
+                  <span v-if="cgene === 'LDLR'">NG_009060.1(<i>LDLR</i>)</span>
+                  <span v-if="cgene === 'FBN'">NG_008805.2(<i>FBN1</i>)</span>
+                  <span v-if="cgene === ''">CHOOSE A GENE</span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li><span class="dropdown-item cpointer" @click="setLDLR">NG_009060.1(<i>LDLR</i>)</span></li>
@@ -113,8 +115,8 @@ export default {
   data(){
     return{
       cvcode: '' , 
-      cgene: '' , 
-      cgenecode : ''
+      cgene: 'LDLR' , 
+      cgenecode : 'NG_009060.1(LDLR)'
     }
   },
   components:{
@@ -127,7 +129,8 @@ export default {
     doReload(){
       this.$store.commit('reload')
       this.cvcode = ''
-      this.cgene = ''
+      this.cgene = 'LDLR'
+      this.cgenecode= 'NG_009060.1(LDLR)'
     }, 
     setLDLR(){
       this.cgene = 'LDLR'

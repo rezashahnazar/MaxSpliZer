@@ -8,8 +8,8 @@ export default createStore({
     vcode : '',
     resdata : '',
     errormsg : 0,
-    gene : '',
-    genecode :''
+    gene : 'LDLR',
+    genecode :'NG_009060.1(LDLR)'
   },
   mutations: {
     reload(state){
@@ -17,8 +17,8 @@ export default createStore({
       state.vcode = ''
       state.resdata = ''
       state.errormsg = 0
-      state.gene = ''
-      state.genecode = ''
+      state.gene = 'LDLR'
+      state.genecode = 'NG_009060.1(LDLR)'
     },
     varload(state, resd){
       state.resdata = resd
