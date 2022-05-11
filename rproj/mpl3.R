@@ -41,7 +41,7 @@ function(req){
       REF = str_extract(string = strsplit(mut_output$rawVariants[[1]]$visualisation,"\n")[[1]][1], "[ACTG](?=( -))")
       ALT = paste0(str_extract(string = strsplit(mut_output$rawVariants[[1]]$visualisation,"\n")[[1]][1], "[ACTG](?=( -))"),
                    str_extract(string = strsplit(mut_output$rawVariants[[1]]$visualisation,"\n")[[1]][2], "(?<=(\\s))[ACTG]+(?=(\\s))"))
-    }else if(str_detect(str_extract(mut_output$rawVariants[[1]]$description, "[a-z]+"), "substit")){
+    }else if(str_detect(str_extract(mut_output$rawVariants[[1]]$description, "[a-z]+"), "substit|delins")){
       REF = str_extract(string = strsplit(mut_output$rawVariants[[1]]$visualisation,"\n")[[1]][1], "(?<=(\\s))[ACTG]+(?=(\\s))")
       ALT = str_extract(string = strsplit(mut_output$rawVariants[[1]]$visualisation,"\n")[[1]][2], "(?<=(\\s))[ACTG]+(?=(\\s))")
     }
